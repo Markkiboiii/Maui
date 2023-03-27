@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TentakompletteringMaui.ViewModels"
+             x:Class="TentakompletteringMaui.MainPage">
+    <ContentPage.BindingContext>
+        <local:FriendListViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Label Text="Friends List" FontAttributes="Bold" FontSize="Large" />
+        <ListView ItemsSource="{Binding Friends}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="Favorite Proverbs:" FontAttributes="Italic" />
+                            <ListView ItemsSource="{Binding FavoriteProverbs}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Label Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
+
